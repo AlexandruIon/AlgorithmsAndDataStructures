@@ -29,14 +29,14 @@ public class TreeBasicOperations {
         System.out.print(node.data + " ");
     }
 
-    public Node minimum(Node node) {
+    public static Node minimum(Node node) {
         if (node.left == null) {
             return node;
         }
         return minimum(node.left);
     }
 
-    public Node maximum(Node node) {
+    public static Node maximum(Node node) {
         if (node.right == null) {
             return node;
         }
