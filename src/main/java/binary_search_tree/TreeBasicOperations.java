@@ -1,5 +1,10 @@
 package binary_search_tree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class TreeBasicOperations {
 
     public void inOrderTraversal(Node node) {
@@ -27,6 +32,28 @@ public class TreeBasicOperations {
         postorderTraversal(node.left);
         postorderTraversal(node.right);
         System.out.print(node.data + " ");
+    }
+
+    public void levelOrderTraversal(Node rootNode) {
+
+        Queue<Node> queue = new LinkedList<>();
+        List<Integer> inOrderTraversal = new ArrayList<>();
+        if (rootNode != null) {
+            queue.add(rootNode);
+        }
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+            inOrderTraversal.add(node.data);
+
+        }
+        System.out.println(inOrderTraversal);
     }
 
     public static Node minimum(Node node) {
@@ -68,6 +95,14 @@ public class TreeBasicOperations {
         }
         return root;
 
+    }
+
+    public Node deleteMin(Node x) {
+        if (x.left == null) {
+            return x.right;
+        }
+        x.left = deleteMin(x.left);
+        return x;
     }
 
 }

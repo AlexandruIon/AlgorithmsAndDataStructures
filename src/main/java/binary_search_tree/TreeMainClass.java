@@ -39,6 +39,10 @@ public class TreeMainClass {
             }
         }
 
+        System.out.println("_______________________-------------------____________");
+        // order level travesal
+        treeBasicOperations.levelOrderTraversal(root);
+
 
     }
 
